@@ -1,0 +1,11 @@
+extends layouts/main-layout.pug
+
+block content    
+  .news
+    each item in news
+      a(href=`/news/${item.id}`)
+        .news__block
+          .news__title #{item.title}
+          .news__description #{item.description}
+          if item.author 
+            .news__author by #{item.author}

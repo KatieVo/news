@@ -1,0 +1,15 @@
+extends layouts/main-layout.pug
+
+block links
+  link(rel="stylesheet", href="../index.css")
+  link(rel="stylesheet", href="../article.css")
+
+block content
+  section.article
+    .article__title #{article.title}
+    if article.author
+      .article__author created by #{article.author}
+    .article__content 
+      p #{article.content}
+      - for (let x = 0; x < 7; x++)
+        p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium atque nostrum dolorem deleniti officiis enim quibusdam iusto quaerat labore! Incidunt quos vel facilis cumque suscipit, provident eum aspernatur excepturi nostrum.

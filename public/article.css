@@ -1,0 +1,17 @@
+.article__title {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.article__author {
+  color: gray;
+  font-size: 12px;
+}
+
+.article__content {
+  margin-top: 25px;
+}
+
+.article__content p {
+  margin-bottom: 10px;
+}
