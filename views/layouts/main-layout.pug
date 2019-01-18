@@ -14,9 +14,9 @@ html(lang="en")
           img(src="https://image.flaticon.com/icons/png/512/21/21601.png", alt="logo")
         nav
           ul.nav
-            li.nav-item
-              a(href="") Home
-            li.nav-item
-              a(href="") News
+            a(href="/", class=(path === '/' && 'nav__item--active')).nav__item
+              li Home
+            a(href="/news", class=(path === '/news' && 'nav__item--active')).nav__item
+              li News
       main
         block content

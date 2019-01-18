@@ -1,7 +1,8 @@
 import express from 'express';
-import config from 'config/config';
+import { newsRouter } from 'routes';
 
-import news from './news.json';
+
+import config from 'config/config';
 
 const app = express();
 
@@ -10,18 +11,10 @@ app.set('views', './views');
 
 app.use(express.static(`${__dirname}/public`));
 
+app.use('/news', newsRouter);
 
 app.get('/', (req, res) => {
-  res.render('home', { pageTitle: 'Home' });
-});
-
-app.get('/news', (req, res) => {
-  res.render('news', { news, pageTitle: 'News' });
-});
-
-app.get('/news/:id', (req, res) => {
-  const article = news.find(item => item.id === req.params.id);
-  res.render('article', { pageTitle: article.title, article });
+  res.render('home', { pageTitle: 'Home', path: '/' });
 });
 
 

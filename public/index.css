@@ -35,7 +35,7 @@ header {
   justify-content: flex-end;
 }
 
-.nav-item {
+.nav__item {
   width: 70px;
   font-size: 18px;
   height: 40px;
@@ -46,7 +46,7 @@ header {
   transition: all 0.3s; 
 }
 
-.nav-item:hover {
+.nav__item:hover, .nav__item--active {
   border-bottom-color: #000;
   font-weight: bold;
 }
