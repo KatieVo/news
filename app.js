@@ -17,6 +17,11 @@ app.get('/', (req, res) => {
   res.render('home', { pageTitle: 'Home', path: '/' });
 });
 
+app.use((err, req, res, next) => {
+  res.status(500);
+  res.render('error', { error: err });
+});
+
 
 app.listen(config.port, () => {
   console.log(`server is running on port ${config.port}`);
