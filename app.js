@@ -3,6 +3,7 @@ import { newsRouter } from 'routes';
 
 
 import config from 'config/config';
+import { errorsController } from 'controllers';
 
 const app = express();
 
@@ -17,10 +18,8 @@ app.get('/', (req, res) => {
   res.render('home', { pageTitle: 'Home', path: '/' });
 });
 
-app.use((err, req, res, next) => {
-  res.status(500);
-  res.render('error', { error: err });
-});
+app.use(errorsController.getServerError);
+app.use(errorsController.get404);
 
 
 app.listen(config.port, () => {
