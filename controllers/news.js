@@ -1,10 +1,10 @@
 import { News } from 'models';
 
-const getNews = (req, res) => {
+const getNews = (req, res, next) => {
   News.fetchAllNews().then(([news]) => {
     res.render('news', { news, pageTitle: 'News', path: '/news' });
   })
-    .catch(err => console.log('EEEEEEERRRRRRROOOOOORRRR', err));
+    .catch(err => next(err));
 };
 
 const getOneArticle = (req, res) => {
