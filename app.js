@@ -1,8 +1,7 @@
 import express from 'express';
-import { newsRouter } from 'routes';
-
-
 import config from 'config/config';
+
+import { newsRouter } from 'routes';
 import { errorsController } from 'controllers';
 
 const app = express();
