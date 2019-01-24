@@ -18,5 +18,7 @@ html(lang="en")
               li Home
             a(href="/news", class=(path === '/news' && 'nav__item--active')).nav__item
               li News
+            a(href="/admin/add-article", class=(path === '/add-article' && 'nav__item--active')).nav__item
+              li Add Article
       main
         block content

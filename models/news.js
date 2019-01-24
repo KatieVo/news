@@ -9,4 +9,15 @@ export default class News {
   }
 
   static fetchAllNews() { return db.execute('SELECT * FROM news'); }
+
+  static getArticleById(id) {
+    return db.execute('SELECT * FROM news WHERE news.id = ?', [id]);
+  }
+
+  save() {
+    return db.execute(
+      'INSERT INTO news (title, author, description, content) VALUES (?, ?, ?, ?)',
+      [this.title, this.author, this.description, this.content],
+    );
+  }
 }

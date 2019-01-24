@@ -1,0 +1,17 @@
+extends layouts/main-layout.pug
+
+block links
+  link(rel="stylesheet", href="../index.css")
+  link(rel="stylesheet", href="../addArticle.css")
+
+block content
+  form(action="/admin/add-article", method="post")
+    label Title
+      input(type="text", required, name="title")
+    label Author
+      input(type="text", name="author")
+    label Description
+      input(type="text", required, name="description")
+    label Content
+      textarea(name="content", cols="19", rows="4", required)
+    input(type="submit", value="Add article")

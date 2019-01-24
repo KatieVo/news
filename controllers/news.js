@@ -7,10 +7,24 @@ const getNews = (req, res, next) => {
     .catch(err => next(err));
 };
 
-const getOneArticle = (req, res) => {
-  // const article = news.find(item => item.id === req.params.id);
-  const article = {};
-  res.render('article', { pageTitle: article.title, article, path: '/news' });
+const getOneArticle = async (req, res, next) => {
+  News.getArticleById(req.params.id)
+    .then(([[article]]) => res.render('article', { pageTitle: article.title, article, path: '/news' }))
+    .catch(err => next(err));
 };
 
-export default { getNews, getOneArticle };
+const getAddArticle = (req, res) => {
+  res.render('addArticle', { pageTitle: 'Add article', path: '/add-article' });
+};
+
+const postAddArticle = (req, res) => {
+  const {
+    title, author, description, content,
+  } = req.body;
+  const article = new News(title, author, description, content);
+  article.save().then(res.redirect('/news'));
+};
+
+export default {
+  getNews, getOneArticle, getAddArticle, postAddArticle,
+};
