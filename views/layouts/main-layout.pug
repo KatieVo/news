@@ -20,5 +20,7 @@ html(lang="en")
               li News
             a(href="/admin/add-article", class=(path === '/add-article' && 'nav__item--active')).nav__item
               li Add Article
+            a(href="/admin/news", class=(path === '/admin/news' && 'nav__item--active')).nav__item
+              li Admin News
       main
         block content

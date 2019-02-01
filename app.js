@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 
 import { newsRouter, adminRouter } from 'routes';
 import { errorsController } from 'controllers';
+import sequelize from 'utils/database';
 
 const app = express();
 
@@ -24,7 +25,12 @@ app.get('/', (req, res) => {
 app.use(errorsController.getServerError);
 app.use(errorsController.get404);
 
-
-app.listen(config.port, () => {
-  console.log(`server is running on port ${config.port}`);
-});
+sequelize.sync()
+  .then(() => {
+    app.listen(config.port, () => {
+      console.log(`server is running on port ${config.port}`);
+    });
+  })
+  .catch(err => {
+    console.log(err);
+  });

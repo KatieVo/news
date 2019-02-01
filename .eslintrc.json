@@ -11,7 +11,7 @@
   },
   "rules": {
     "indent": [
-      "error", 
+      "error",
       2
     ],
     "quotes": [
@@ -21,6 +21,14 @@
     "semi": [
       "error",
       "always"
+    ],
+    "max-len": [
+      "error",
+      { "code": 80 }
+    ],
+    "arrow-parens": [
+      2,
+      "as-needed"
     ]
   },
   "settings": {
